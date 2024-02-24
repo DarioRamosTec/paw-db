@@ -1,0 +1,226 @@
+use PawSecureDB
+
+db.createCollection("users", {
+   validator: {
+      $jsonSchema: {
+         bsonType: "object",
+         required: ["name", "email", "password"],
+         properties: {
+            is_active: { bsonType: "bool" },
+            name: { bsonType: "string" },
+            lang: { bsonType: "string" },
+            email: { bsonType: "string", uniqueItems: true },
+            image: { bsonType: "string" },
+            time_verification: { bsonType: "date" },
+            middle_name: { bsonType: "string" },
+            last_name: { bsonType: "string" },
+            genre: { bsonType: "string" },
+            password: { bsonType: "string" },
+            birthday: { bsonType: "date" },
+            created_at: { bsonType: "date" },
+            updated_at: { bsonType: "date" }
+         }
+      }
+   }
+});
+
+
+db.createCollection("password_resets", {
+   validator: {
+      $jsonSchema: {
+         bsonType: "object",
+         required: ["email", "token"],
+         properties: {
+            email: { bsonType: "string", uniqueItems: true },
+            token: { bsonType: "string" },
+            created_at: { bsonType: "date" }
+         }
+      }
+   }
+});
+
+
+db.createCollection("failed_jobs", {
+   validator: {
+      $jsonSchema: {
+         bsonType: "object",
+         required: ["uuid", "connection", "queue", "payload", "exception"],
+         properties: {
+            uuid: { bsonType: "string", uniqueItems: true },
+            connection: { bsonType: "string" },
+            queue: { bsonType: "string" },
+            payload: { bsonType: "string" },
+            exception: { bsonType: "string" },
+            failed_at: { bsonType: "date" }
+         }
+      }
+   }
+});
+
+
+db.createCollection("personal_access_tokens", {
+   validator: {
+      $jsonSchema: {
+         bsonType: "object",
+         required: ["tokenable_id", "tokenable_type", "name", "token", "abilities"],
+         properties: {
+            tokenable_id: { bsonType: "int" },
+            tokenable_type: { bsonType: "string" },
+            name: { bsonType: "string" },
+            token: { bsonType: "string", uniqueItems: true },
+            abilities: { bsonType: "string" },
+            last_used_at: { bsonType: "date" },
+            expires_at: { bsonType: "date" },
+            created_at: { bsonType: "date" },
+            updated_at: { bsonType: "date" }
+         }
+      }
+   }
+});
+
+
+db.createCollection("roles", {
+   validator: {
+      $jsonSchema: {
+         bsonType: "object",
+         required: ["name", "description"],
+         properties: {
+            name: { bsonType: "string" },
+            description: { bsonType: "string" },
+            created_at: { bsonType: "date" },
+            updated_at: { bsonType: "date" }
+         }
+      }
+   }
+});
+
+
+db.createCollection("sensors", {
+   validator: {
+      $jsonSchema: {
+         bsonType: "object",
+         required: ["time", "measure", "data", "sensor_type_id", "space_id", "pet_id"],
+         properties: {
+            time: { bsonType: "date" },
+            measure: { bsonType: "double" },
+            data: { bsonType: "string" },
+            seen: { bsonType: "bool" },
+            sensor_type_id: { bsonType: "int" },
+            space_id: { bsonType: "int" },
+            pet_id: { bsonType: "int" },
+            created_at: { bsonType: "date" },
+            updated_at: { bsonType: "date" }
+         }
+      }
+   }
+});
+
+
+db.createCollection("pet_space", {
+   validator: {
+      $jsonSchema: {
+         bsonType: "object",
+         required: ["space_id", "pet_id"],
+         properties: {
+            space_id: { bsonType: "int" },
+            pet_id: { bsonType: "int" },
+            created_at: { bsonType: "date" },
+            updated_at: { bsonType: "date" }
+         }
+      }
+   }
+});
+
+
+db.createCollection("spaces", {
+   validator: {
+      $jsonSchema: {
+         bsonType: "object",
+         required: ["name", "description", "mac", "user_id", "target_id"],
+         properties: {
+            name: { bsonType: "string" },
+            description: { bsonType: "string" },
+            mac: { bsonType: "string" },
+            linked: { bsonType: "bool" },
+            user_id: { bsonType: "int" },
+            target_id: { bsonType: "int" },
+            created_at: { bsonType: "date" },
+            updated_at: { bsonType: "date" }
+         }
+      }
+   }
+});
+
+
+db.createCollection("notifications", {
+   validator: {
+      $jsonSchema: {
+         bsonType: "object",
+         required: ["title", "message", "sensor_id"],
+         properties: {
+            title: { bsonType: "string" },
+            message: { bsonType: "string" },
+            sensor_id: { bsonType: "int" },
+            created_at: { bsonType: "date" },
+            updated_at: { bsonType: "date" }
+         }
+      }
+   }
+});
+
+
+db.createCollection("sensor_type", {
+   validator: {
+      $jsonSchema: {
+         bsonType: "object",
+         required: ["name", "details", "unity", "feed"],
+         properties: {
+            name: { bsonType: "string" },
+            details: { bsonType: "string" },
+            unity: { bsonType: "string" },
+            feed: { bsonType: "string" },
+            created_at: { bsonType: "date" },
+            updated_at: { bsonType: "date" }
+         }
+      }
+   }
+});
+
+
+db.createCollection("animals", {
+   validator: {
+      $jsonSchema: {
+         bsonType: "object",
+         required: ["name", "description"],
+         properties: {
+            name: { bsonType: "string" },
+            description: { bsonType: "string" },
+            created_at: { bsonType: "date" },
+            updated_at: { bsonType: "date" }
+         }
+      }
+   }
+});
+
+
+db.createCollection("pets", {
+   validator: {
+      $jsonSchema: {
+         bsonType: "object",
+         required: ["name", "description", "race", "sex", "animal_id", "user_id"],
+         properties: {
+            name: { bsonType: "string" },
+            description: { bsonType: "string" },
+            race: { bsonType: "string" },
+            sex: { bsonType: "string" },
+            icon: { bsonType: "int" },
+            birthday: { bsonType: "date" },
+            image: { bsonType: "string" },
+            animal_id: { bsonType: "int" },
+            user_id: { bsonType: "int" },
+            created_at: { bsonType: "date" },
+            updated_at: { bsonType: "date" }
+         }
+      }
+   }
+});

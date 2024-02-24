@@ -1,0 +1,121 @@
+// users
+db.users.insertOne({
+    "name": "John Doe",
+    "email": "johndoe@example.com",
+    "password": "password123",
+    "is_active": true,
+    "lang": "en",
+    "created_at": new Date(),
+    "updated_at": new Date()
+})
+
+// password_resets
+db.password_resets.insertOne({
+    "email": "johndoe@example.com",
+    "token": "reset_token123",
+    "created_at": new Date()
+})
+
+// failed_jobs
+db.failed_jobs.insertOne({
+    "uuid": "uuid123",
+    "connection": "connection_name",
+    "queue": "queue_name",
+    "payload": "payload_content",
+    "exception": "exception_message",
+    "failed_at": new Date()
+})
+
+// personal_access_tokens
+db.personal_access_tokens.insertOne({
+    "tokenable_id": 1,
+    "tokenable_type": "user",
+    "name": "Example Token",
+    "token": "token123",
+    "abilities": "read,write",
+    "created_at": new Date(),
+    "updated_at": new Date()
+})
+
+// roles
+db.roles.insertOne({
+    "name": "admin",
+    "description": "Administrator role",
+    "created_at": new Date(),
+    "updated_at": new Date()
+})
+
+// sensors
+db.sensors.insertOne({
+    "time": new Date(),
+    "measure": 25.5,
+    "data": "sensor_data",
+    "seen": true,
+    "sensor_type_id": 1,
+    "space_id": 1,
+    "pet_id": 1,
+    "created_at": new Date(),
+    "updated_at": new Date()
+})
+
+// pet_space
+db.pet_space.insertOne({
+    "space_id": 1,
+    "pet_id": 1,
+    "created_at": new Date(),
+    "updated_at": new Date()
+})
+
+// spaces
+db.spaces.insertOne({
+    "name": "Living Room",
+    "description": "Main living area",
+    "mac": "00:11:22:33:44:55",
+    "linked": true,
+    "user_id": 1,
+    "target_id": 1,
+    "created_at": new Date(),
+    "updated_at": new Date()
+})
+
+// notifications
+db.notifications.insertOne({
+    "title": "Alert",
+    "message": "High temperature detected",
+    "sensor_id": 1,
+    "created_at": new Date(),
+    "updated_at": new Date()
+})
+
+// sensor_type
+db.sensor_type.insertOne({
+    "name": "Temperature",
+    "details": "Temperature sensor",
+    "unity": "Celsius",
+    "feed": "temperature_feed",
+    "created_at": new Date(),
+    "updated_at": new Date()
+})
+
+// animals
+db.animals.insertOne({
+    "name": "Dog",
+    "description": "Canine animal",
+    "created_at": new Date(),
+    "updated_at": new Date()
+})
+
+// pets
+db.pets.insertOne({
+    "name": "Buddy",
+    "description": "Golden Retriever",
+    "race": "Golden Retriever",
+    "sex": "Male",
+    "icon": 1,
+    "birthday": new Date(),
+    "image": "buddy.jpg",
+    "animal_id": 1,
+    "user_id": 1,
+    "created_at": new Date(),
+    "updated_at": new Date()
+})

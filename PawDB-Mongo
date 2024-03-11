@@ -173,7 +173,7 @@ db.createCollection("sensor_type", {
    validator: {
       $jsonSchema: {
          bsonType: "object",
-         required: ["name", "details", "unity", "feed"],
+         required: ["name", "clave", "details", "unity", "feed"],
          properties: {
             name: { bsonType: "string" },
             clave : {  bsonType: "char"},

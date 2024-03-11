@@ -176,6 +176,7 @@ db.createCollection("sensor_type", {
          required: ["name", "details", "unity", "feed"],
          properties: {
             name: { bsonType: "string" },
+            clave : {  bsonType: "char"},
             details: { bsonType: "string" },
             unity: { bsonType: "string" },
             feed: { bsonType: "string" },
